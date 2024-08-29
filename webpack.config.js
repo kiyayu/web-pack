@@ -16,16 +16,20 @@ export default {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html",
+      template: "src/template.html",
       filename: "index.html",
     }),
   ],
   devServer: {
-    static: path.resolve("dist"), // Updated option
+    static: path.resolve("dist"),
     compress: true,
     port: 9000,
     hot: true,
